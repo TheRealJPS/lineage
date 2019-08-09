@@ -151,6 +151,13 @@ rect {
   margin: 3px;
 }
 
+.year__button {
+  display: block;
+  height: 40px;
+  width: 43%;
+  margin: 3px;
+}
+
 .view__button {
   display: block;
   height: 75px;
