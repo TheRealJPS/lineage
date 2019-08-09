@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Lineage - Family tree visualization tool in D3</title>
+<title>Familie Stern | Ahnen in Knoten</title>
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -38,34 +38,57 @@
 </head>
 <body onLoad="start()">
   <div id="menu">
-    <button class="toggle__button" onClick="toggleMenu()">â˜°</button>
+    <button class="toggle__button" onClick="toggleMenu()">Menü</button>
     <div class="options">
-      <h1><a href="http://github.com/bengarvey/lineage">Lineage</a></h1>
+      <h1><a href="https://familie-stern.de">Familie Stern</a></h1>
+      <h2>Ahnen in Knoten</h2>
+<!--
       <div class="checkbox">
         <label class="options__label">
           <input type="checkbox" class="checkbox-lg" id="musicOn"> Music
         </label>
       </div>
+-->
+    <hr>
+    <h4>&nbsp;&nbsp;Knotenansichten:</h4>
+    <div class="views">
+      <button class="btn btn-default time__button" onClick="lineage.setMode('tree');">Baum</button>
+      <button class="btn btn-default time__button" onClick="lineage.setMode('timeline');">Zeitleiste (erst ab 1710 sichtbar)</button>
+      <button class="btn btn-default time__button" onClick="lineage.setMode('cluster');">Gruppen</button>
+    </div>
+    <hr>
+    <h4>&nbsp;&nbsp;Nachnamenfilter:</h4>
+    &nbsp;&nbsp;&nbsp;Mehrere Namen durch Leerzeichen trennen!
+    <input id="search" class="form-control input-lg" value="">
+    <hr>
+    <h4>&nbsp;&nbsp;Navigation / Animation:</h4>
+    <div class="time">
+      <button class="btn btn-default time__button" id="firstButton"
+        onClick="lineage.setYear(1425)">1425</button>
+      <button class="btn btn-default year__button" id="1600Button"
+        onClick="lineage.setYear(1600)">1600</button>
+      <button class="btn btn-default year__button" id="1700Button"
+        onClick="lineage.setYear(1700)">1700</button>
+      <button class="btn btn-default year__button" id="1800Button"
+        onClick="lineage.setYear(1800)">1800</button>
+      <button class="btn btn-default year__button" id="1900Button"
+        onClick="lineage.setYear(1900)">1900</button>
+      <button class="btn btn-default time__button" id="lastButton"
+        onClick="lineage.setYear(2020)">2020</button>
+    <br><br>
+      <button class="btn btn-default time__button" id="playButton"
+        onClick="lineage.setYearIncrement(1);lineage.playMusic();">Wiedergabe</button>
+      <button class="btn btn-default time__button" id="pauseButton"
+        onClick="lineage.setYearIncrement(0);lineage.playMusic();">Pause</button>
+    </div>
+    <hr>
+    <h4>&nbsp;&nbsp;Design:</h4>
       <div class="checkbox">
         <label type="options__label">
-          <input type="checkbox" class="checkbox-lg" id="nightModeOn"> Night Mode
+          <input type="checkbox" class="checkbox-lg" id="nightModeOn"> dunkel
         </label>
       </div>
     </div>
-    <div class="views">
-      <button class="btn btn-default view__button" onClick="lineage.setMode('tree');">Tree</button>
-      <button class="btn btn-default view__button" onClick="lineage.setMode('timeline');">Timeline</button>
-      <button class="btn btn-default view__button" onClick="lineage.setMode('cluster');">Cluster</button>
-    </div>
-    <div class="time">
-      <button class="btn btn-default time__button" id="firstButton"
-        onClick="lineage.setYear(1800)">First</button>
-      <button class="btn btn-default time__button" id="playButton"
-        onClick="lineage.setYearIncrement(1);lineage.playMusic();">Play</button>
-      <button class="btn btn-default time__button" id="lastButton"
-        onClick="lineage.setYear(2014)">Last</button>
-    </div>
-    <input id="search" class="form-control input-lg" value="">
   </div>
   <div id="year"></div>
   <canvas height="1000" width="1000"></canvas>
@@ -74,4 +97,3 @@
   </div>
 </body>
 </html>
-
