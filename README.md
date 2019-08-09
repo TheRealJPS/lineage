@@ -5,6 +5,8 @@ Family Tree Data Expression Engine
 
 See a live demo at
 http://www.bengarvey.com/lineage
+Forked and customized live demo at
+https://knoten.familie-stern.de/
 
 ### Notes
 - For viewing large datasets, it may help to zoom out your browser
